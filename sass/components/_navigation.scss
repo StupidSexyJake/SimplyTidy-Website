@@ -1,0 +1,19 @@
+// Navbar layout
+nav {
+    display: flex;
+    width: 100%;
+    padding: 4px;
+
+    section.navigation-start {
+        display: inline-flex;
+        justify-content: flex-start;
+        order: -1;
+        flex: 1 1 auto;
+    }
+    section.navigation-end {
+        display: inline-flex;
+        justify-content: flex-end;
+        order: 1;
+        flex: 1 1 auto;
+    }
+}

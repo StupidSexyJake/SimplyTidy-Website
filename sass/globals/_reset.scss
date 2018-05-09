@@ -1,0 +1,16 @@
+// Reset for margins, padding and borders
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+// Set box-sizing to border-box by default
+*, *:before, *:after {
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+  }
+// Button reset
+button {
+    border: 0;
+}
