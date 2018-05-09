@@ -1,15 +1,69 @@
-/*  
-SASS Main
-==============
-
-Table of Contents:
-1. Globals
-X. Shame
-
-1. Globals
-------------- 
-
-X. Shame
--------------
-*/
-@import 'shame';
+//  SASS Main
+//  ==============
+// 
+//  Table of Contents:
+// 
+//  1. Globals
+//      - Reset
+//      - Color
+//      - Typography
+//  2. Layout
+//      - Grid
+//      - Header
+//      - Footer
+//  3. Components
+//      - Buttons
+//      - Forms
+//      - Navigation
+//  4. Pages
+//      - Home
+//  5. Themes
+//      - Theme
+//      - Admin
+//  6. Utils
+//      - Config
+//      - Functions
+//      - Mixins
+//  7. Vendors
+//  X. Shame
+//
+// 
+//  1. Globals
+//  ------------- 
+    @import 'globals/reset';
+    @import 'globals/color';
+    @import 'globals/typography';
+//
+//  2. Layouts
+//  -------------
+    @import 'layouts/grid';
+    @import 'layouts/header';
+    @import 'layouts/footer';
+//
+//  3. Components
+//  -------------
+    @import 'components/buttons';
+    @import 'components/forms';
+    @import 'components/navigation';
+//
+//  4. Pages
+// -------------
+    @import 'pages/home';
+//
+//  5. Themes
+//  -------------
+    @import 'themes/theme';
+    @import 'themes/admin';
+//
+//  6. Utils
+//  -------------
+    @import 'utils/config';
+    @import 'utils/functions';
+    @import 'utils/mixins';
+//
+//  7. Vendors
+//  -------------
+//
+//  X. Shame
+//  -------------
+    @import 'shame';
