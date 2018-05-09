@@ -2,18 +2,28 @@
 nav {
     display: flex;
     width: 100%;
-    padding: 4px;
-
-    section.navigation-start {
-        display: inline-flex;
-        justify-content: flex-start;
+    padding: 4px;      
+    
+    .navigation-start {    
+        @include navigation-bar-section;
         order: -1;
-        flex: 1 1 auto;
+        justify-content: flex-start;
+
+        a {
+            padding-left: 20px;
+        }
     }
-    section.navigation-end {
-        display: inline-flex;
-        justify-content: flex-end;
+    .navigation-end {
+        @include navigation-bar-section;
         order: 1;
-        flex: 1 1 auto;
+        justify-content: flex-end;
+
+        button {
+            display: flex;
+            position: relative;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;      
+        }
     }
 }

@@ -3,63 +3,63 @@
 // 
 //  Table of Contents:
 // 
-//  1. Globals
-//      - Reset
-//      - Color
-//      - Typography
-//  2. Layout
-//      - Grid
-//      - Header
-//      - Footer
-//  3. Components
-//      - Buttons
-//      - Forms
-//      - Navigation
-//  4. Pages
-//      - Home
-//  5. Themes
-//      - Theme
-//      - Admin
-//  6. Utils
+//  1. Utils
 //      - Config
 //      - Functions
 //      - Mixins
+//  2. Globals
+//      - Reset
+//      - Color
+//      - Typography
+//  3. Layout
+//      - Grid
+//      - Header
+//      - Footer
+//  4. Components
+//      - Buttons
+//      - Forms
+//      - Navigation
+//  5. Pages
+//      - Home
+//  6. Themes
+//      - Theme
+//      - Admin
 //  7. Vendors
 //  X. Shame
 //
+//
+//  1. Utils
+//  -------------
+    @import 'utils/reset';
+    @import 'utils/config';
+    @import 'utils/functions';
+    @import 'utils/mixins';
 // 
-//  1. Globals
+//  2. Globals
 //  ------------- 
-    @import 'globals/reset';
     @import 'globals/color';
     @import 'globals/typography';
 //
-//  2. Layouts
+//  3. Layouts
 //  -------------
     @import 'layouts/grid';
     @import 'layouts/header';
     @import 'layouts/footer';
 //
-//  3. Components
+//  4. Components
 //  -------------
     @import 'components/buttons';
     @import 'components/forms';
     @import 'components/navigation';
 //
-//  4. Pages
+//  5. Pages
 // -------------
     @import 'pages/home';
 //
-//  5. Themes
+//  6. Themes
 //  -------------
     @import 'themes/theme';
     @import 'themes/admin';
-//
-//  6. Utils
-//  -------------
-    @import 'utils/config';
-    @import 'utils/functions';
-    @import 'utils/mixins';
 //
 //  7. Vendors
 //  -------------
