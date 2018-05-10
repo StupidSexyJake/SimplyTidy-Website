@@ -1,3 +1,6 @@
+html, body {
+  height: 100%; }
+
 body {
   margin: 0;
   padding: 0;
@@ -31,19 +34,17 @@ body, p {
 div.grid-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 56px auto auto;
+  grid-template-rows: 56px auto 56px;
   grid-template-areas: "header header header header" "main main main main" "footer footer footer footer"; }
 
 header {
   grid-area: header; }
 
 main {
-  grid-area: main;
-  background-color: red; }
+  grid-area: main; }
 
 footer {
-  grid-area: footer;
-  background-color: blue; }
+  grid-area: footer; }
 
 button.icon-button {
   font-family: 'Material Icons';
@@ -89,5 +90,12 @@ nav {
       flex-shrink: 0;
       align-items: center;
       justify-content: center; }
+
+main .above-the-fold {
+  background-image: url("../img/homepage-hero-woman-relaxing.jpg");
+  min-height: calc(100vh - 56px);
+  background-position: 12% center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 /*# sourceMappingURL=styles.css.map */
