@@ -2,8 +2,25 @@ main {
     .above-the-fold {
         background-image: url("../img/homepage-hero-woman-relaxing.jpg");
         min-height: calc(100vh - 56px);
-        background-position: 12% center;
+        background-position: 0 center;
         background-repeat: no-repeat;
         background-size: cover;
+        .flex-container {
+            display: flex;            
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 32px 16px;
+            height: calc((100vh - 56px) / 2.5);
+            h1 {
+                order: -1;
+                align-self: flex-end;
+                text-align: right;
+                width: 70%;
+            }
+            button {
+                order: 1;
+                align-self: flex-end;
+            }
+        }
     }
 }

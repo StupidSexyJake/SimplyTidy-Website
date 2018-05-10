@@ -1,7 +1,7 @@
 html, body {
   height: 100%; }
 
-body {
+body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
   border: 0; }
@@ -18,7 +18,14 @@ html {
   font-size: 16px; }
 
 body, p {
-  font-family: 'Rubik', sans-serif; }
+  font-family: 'Roboto', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif; }
+
+h1 {
+  font-weight: 400;
+  font-size: 36px; }
 
 .font-logo-primary-simply {
   font-weight: 500;
@@ -94,8 +101,22 @@ nav {
 main .above-the-fold {
   background-image: url("../img/homepage-hero-woman-relaxing.jpg");
   min-height: calc(100vh - 56px);
-  background-position: 12% center;
+  background-position: 0 center;
   background-repeat: no-repeat;
   background-size: cover; }
+  main .above-the-fold .flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 32px 16px;
+    height: calc((100vh - 56px) / 2.5); }
+    main .above-the-fold .flex-container h1 {
+      order: -1;
+      align-self: flex-end;
+      text-align: right;
+      width: 70%; }
+    main .above-the-fold .flex-container button {
+      order: 1;
+      align-self: flex-end; }
 
 /*# sourceMappingURL=styles.css.map */

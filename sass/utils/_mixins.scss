@@ -12,7 +12,7 @@
     direction: ltr;
     -webkit-font-smoothing: antialiased;
 }
-@mixin navigation-bar-section {  
+@mixin flex-item-standard {  
     display: inline-flex;
     align-items: center;
     min-width: 0;
