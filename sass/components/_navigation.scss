@@ -2,15 +2,21 @@
 nav {
     display: flex;
     width: 100%;
-    padding: 4px;      
+    padding: 4px;
+    background-color: $white;    
     
     .navigation-start {    
         @include flex-item-standard;
         order: -1;
         justify-content: flex-start;
 
+        button {
+            color: $black;
+        }
+
         a {
             padding-left: 20px;
+            color: $black;
         }
     }
     .navigation-end {
@@ -23,7 +29,8 @@ nav {
             position: relative;
             flex-shrink: 0;
             align-items: center;
-            justify-content: center;      
+            justify-content: center;
+            color: $black;  
         }
     }
 }

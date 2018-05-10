@@ -18,10 +18,10 @@ html {
   font-size: 16px; }
 
 body, p {
-  font-family: 'Roboto', sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 h1 {
   font-weight: 400;
@@ -41,7 +41,7 @@ h1 {
 div.grid-container {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 56px auto 56px;
+  grid-template-rows: 56px auto auto;
   grid-template-areas: "header header header header" "main main main main" "footer footer footer footer"; }
 
 header {
@@ -74,7 +74,8 @@ button.icon-button {
 nav {
   display: flex;
   width: 100%;
-  padding: 4px; }
+  padding: 4px;
+  background-color: #fafafa; }
   nav .navigation-start {
     display: inline-flex;
     align-items: center;
@@ -82,8 +83,11 @@ nav {
     flex: 1 1 auto;
     order: -1;
     justify-content: flex-start; }
+    nav .navigation-start button {
+      color: rgba(0, 0, 0, 0.87); }
     nav .navigation-start a {
-      padding-left: 20px; }
+      padding-left: 20px;
+      color: rgba(0, 0, 0, 0.87); }
   nav .navigation-end {
     display: inline-flex;
     align-items: center;
@@ -96,27 +100,28 @@ nav {
       position: relative;
       flex-shrink: 0;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      color: rgba(0, 0, 0, 0.87); }
 
-main .above-the-fold {
+main .above-the-fold-section {
   background-image: url("../img/homepage-hero-woman-relaxing.jpg");
   min-height: calc(100vh - 56px);
   background-position: 0 center;
   background-repeat: no-repeat;
   background-size: cover; }
-  main .above-the-fold .flex-container {
+  main .above-the-fold-section .above-the-fold-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 32px 16px;
-    height: calc((100vh - 56px) / 2.5); }
-    main .above-the-fold .flex-container h1 {
+    padding-top: 72px;
+    padding-right: 16px; }
+    main .above-the-fold-section .above-the-fold-container h1 {
       order: -1;
       align-self: flex-end;
       text-align: right;
-      width: 70%; }
-    main .above-the-fold .flex-container button {
+      width: 75%; }
+    main .above-the-fold-section .above-the-fold-container button {
       order: 1;
-      align-self: flex-end; }
+      align-self: flex-end;
+      margin-top: 32px; }
 
 /*# sourceMappingURL=styles.css.map */

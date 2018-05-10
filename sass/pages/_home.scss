@@ -1,25 +1,25 @@
 main {
-    .above-the-fold {
+    .above-the-fold-section {
         background-image: url("../img/homepage-hero-woman-relaxing.jpg");
         min-height: calc(100vh - 56px);
         background-position: 0 center;
         background-repeat: no-repeat;
         background-size: cover;
-        .flex-container {
+        .above-the-fold-container {
             display: flex;            
             flex-direction: column;
-            justify-content: space-around;
-            padding: 32px 16px;
-            height: calc((100vh - 56px) / 2.5);
+            padding-top: 72px;
+            padding-right: 16px;
             h1 {
                 order: -1;
                 align-self: flex-end;
                 text-align: right;
-                width: 70%;
+                width: 75%;
             }
             button {
                 order: 1;
                 align-self: flex-end;
+                margin-top: 32px;
             }
         }
     }
