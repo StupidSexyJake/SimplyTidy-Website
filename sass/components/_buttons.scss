@@ -1,7 +1,26 @@
-button.icon-button {
-    @include material-icons;
-    padding: 12px;
-    width: 48px;
+.primary-button-with-icon {
+    display: inline-flex;                
+    align-self: flex-end;
+    align-items: center;
     height: 48px;
-    background-color: transparent;
+    min-width: 64px;
+    padding-left: 16px;
+    font-size: 0.875rem;
+    font-family: $button-font-family;
+    font-weight: 400;  
+    letter-spacing: .5px;
+    text-transform: uppercase;    
+    background: $primary-color;
+    background: -webkit-linear-gradient($primary-color-gradient-top, $primary-color-gradient-bottom);
+    background: linear-gradient($primary-color-gradient-top, $primary-color-gradient-bottom);
+    color: $primary-color-text;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2); // only use if color is white/light on a bright background
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.material-icons-button {
+    @include material-icons;
+}
+.material-icons-text-left {
+    @include material-icons;
+    padding-left: 8px;
 }

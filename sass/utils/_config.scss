@@ -1,3 +1,12 @@
-$primary-color: #00BCD4;
+// Color scheme
+$primary-color: hsl(187, 100%, 42%);
+$primary-color-gradient-top: hsl(180, 100%, 42%);
+$primary-color-gradient-bottom: hsl(194, 100%, 42%);
+$primary-color-text: #fafafa;
 $primary-dark-color: #3E2723;
+
+// Typography - Font styles
 $primary-font-family: 'Roboto', sans-serif;
+$title-font-family: 'Montserrat', sans-serif;
+$button-font-family: 'Open Sans', sans-serif;
+$primary-font-size: 16px;

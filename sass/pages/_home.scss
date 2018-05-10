@@ -8,18 +8,17 @@ main {
         .above-the-fold-container {
             display: flex;            
             flex-direction: column;
-            padding-top: 72px;
+            justify-content: center;
+            height: calc((100vh - 56px)/2);
             padding-right: 16px;
             h1 {
                 order: -1;
                 align-self: flex-end;
                 text-align: right;
-                width: 75%;
             }
-            button {
+            a {                             
                 order: 1;
-                align-self: flex-end;
-                margin-top: 32px;
+                margin-top: 32px;                
             }
         }
     }

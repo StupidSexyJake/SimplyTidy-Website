@@ -1,7 +1,7 @@
 html, body {
   height: 100%; }
 
-body, h1, h2, h3, h4, h5, h6, p {
+body, h1, h2, h3, h4, h5, h6, p, button {
   margin: 0;
   padding: 0;
   border: 0; }
@@ -11,9 +11,6 @@ body, h1, h2, h3, h4, h5, h6, p {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-button {
-  border: 0; }
-
 html {
   font-size: 16px; }
 
@@ -21,11 +18,11 @@ body, p {
   font-family: "Roboto", sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Montserrat", sans-serif; }
 
 h1 {
   font-weight: 400;
-  font-size: 36px; }
+  font-size: 2.25rem; }
 
 .font-logo-primary-simply {
   font-weight: 500;
@@ -36,7 +33,7 @@ h1 {
   letter-spacing: 0.125rem; }
 
 .font-logo-primary-tidy {
-  color: #00BCD4; }
+  color: #00bdd6; }
 
 div.grid-container {
   display: grid;
@@ -53,12 +50,32 @@ main {
 footer {
   grid-area: footer; }
 
-button.icon-button {
+.primary-button-with-icon {
+  display: inline-flex;
+  align-self: flex-end;
+  align-items: center;
+  height: 48px;
+  min-width: 64px;
+  padding-left: 16px;
+  font-size: 0.875rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  background: #00bdd6;
+  background: -webkit-linear-gradient(#00d6d6, #00a4d6);
+  background: linear-gradient(#00d6d6, #00a4d6);
+  color: #fafafa;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+.material-icons-button {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1;
+  padding: 12px;
   letter-spacing: normal;
   text-transform: none;
   display: inline-block;
@@ -66,10 +83,28 @@ button.icon-button {
   word-wrap: normal;
   direction: ltr;
   -webkit-font-smoothing: antialiased;
-  padding: 12px;
   width: 48px;
   height: 48px;
   background-color: transparent; }
+
+.material-icons-text-left {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 12px;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  padding-left: 8px; }
 
 nav {
   display: flex;
@@ -81,8 +116,7 @@ nav {
     align-items: center;
     min-width: 0;
     flex: 1 1 auto;
-    order: -1;
-    justify-content: flex-start; }
+    order: -1; }
     nav .navigation-start button {
       color: rgba(0, 0, 0, 0.87); }
     nav .navigation-start a {
@@ -97,8 +131,6 @@ nav {
     justify-content: flex-end; }
     nav .navigation-end button {
       display: flex;
-      position: relative;
-      flex-shrink: 0;
       align-items: center;
       justify-content: center;
       color: rgba(0, 0, 0, 0.87); }
@@ -112,16 +144,15 @@ main .above-the-fold-section {
   main .above-the-fold-section .above-the-fold-container {
     display: flex;
     flex-direction: column;
-    padding-top: 72px;
+    justify-content: center;
+    height: calc((100vh - 56px)/2);
     padding-right: 16px; }
     main .above-the-fold-section .above-the-fold-container h1 {
       order: -1;
       align-self: flex-end;
-      text-align: right;
-      width: 75%; }
-    main .above-the-fold-section .above-the-fold-container button {
+      text-align: right; }
+    main .above-the-fold-section .above-the-fold-container a {
       order: 1;
-      align-self: flex-end;
       margin-top: 32px; }
 
 /*# sourceMappingURL=styles.css.map */
