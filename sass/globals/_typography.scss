@@ -4,12 +4,19 @@ html {
 body, p {
     font-family: $primary-font-family;
 }
+
+// Headings
 h1, h2, h3, h4, h5, h6 {
     font-family: $title-font-family;
 }
 h1 {
     font-weight: 400;
     font-size: 2.25rem;
+}
+
+// Links
+a {
+    text-decoration: none;
 }
 
 // Logo fonts

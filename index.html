@@ -18,38 +18,50 @@
 </head>
 
 <body>
+    <!-- Side navigation menu -->
+    <aside id="sidebar">
+        <nav id="sidebarMenu">
+            <header>
+                Header here
+            </header>
+            <nav>
+                <a class="" href="#">Link 1</a>
+            </nav>
+        </nav>
+        <div id="overlay" onclick="closeSidemenu()"></div>
+    </aside>
     <!-- Container for grid layout -->
-    <div class="grid-container">
+    <div id="page-start" class="grid-container">
         <!-- Header -->
         <header>
             <!-- Primary website navigation -->
             <nav>
                 <!-- Left-aligned menu items -->
-                <section class="navigation-start">
+                <section>
                     <!-- Hamburger menu -->
-                    <button class="material-icons-button">menu</button>
+                    <button class="material-icons-button" onclick="openSidemenu()">menu</button>
                     <!-- Logo -->
-                    <a href="#" class="font-logo-primary-simply" title="SimplyTidy">Simply<span class="font-logo-primary-tidy">Tidy</span></a>
+                    <a href="#" class="font-logo-primary-simply" title="SimplyTidy Home">Simply<span class="font-logo-primary-tidy">Tidy</span></a>
                 </section>
                 <!-- Right-aligned menu items-->
-                <section class="navigation-end">
+                <section>
                     <!-- Call us button -->
-                    <button class="material-icons-button">call</button>
+                    <a class="material-icons-button" title="Call us" href="tel:+61756465290">call</a>
                     <!-- Chat with us button -->
-                    <button class="material-icons-button">chat</button>
+                    <a class="material-icons-button" title="Chat with us" onclick='$zoho.salesiq.floatwindow.visible("show");'>chat</a>
                 </section>
-            </nav>
+            </nav>            
         </header>
         <!-- Main page content -->
         <main>
             <!-- Above the fold content section -->
-            <section class="above-the-fold-section vh-fix">
+            <section id="above-the-fold-section" class="vh-fix">
                 <!-- Container for flex layout -->
-                <div class="above-the-fold-container">
+                <div>
                     <!-- Page title -->
                     <h1>That clean<br/>home feeling!</h1>
                     <!-- Primary call to action button -->
-                    <a class="primary-button-with-icon">Book a cleaning <i class="material-icons-text-left">expand_more</i></a>
+                    <a class="primary-button-with-icon" title="Book a cleaning service">Book a cleaning <i class="material-icons-text-left">expand_more</i></a>
                 </div>
             </section>
         </main>
@@ -61,6 +73,10 @@
     <!-- Import Javascript -->
     <script src="js/script.js"></script>
     <script src="js/vendors/vh-fix.js"></script>
+    <!-- Zoho SalesIQ online chat plugin -->
+    <script type="text/javascript">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"cc3595bcf2b1b5c15c83b5380d8f9499f5a6894966e58a35e59da06c597f5fe9", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+    </script>
 </body>
 
 </html>

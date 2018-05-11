@@ -1,11 +1,8 @@
 main {
-    .above-the-fold-section {
-        background-image: url("../img/homepage-hero-woman-relaxing.jpg");
+    #above-the-fold-section {
+        background: url("../img/homepage-hero-woman-relaxing.jpg") no-repeat 0 center / cover;
         min-height: calc(100vh - 56px);
-        background-position: 0 center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        .above-the-fold-container {
+        div:first-of-type {
             display: flex;            
             flex-direction: column;
             justify-content: center;
