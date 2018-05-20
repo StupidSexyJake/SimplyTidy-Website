@@ -11,19 +11,19 @@
 //      - Reset
 //      - Color
 //      - Typography
-//  3. Layout
+//  3. Themes
+//      - Theme
+//      - Admin
+//  4. Layout
 //      - Grid
 //      - Header
 //      - Footer
-//  4. Components
+//  5. Components
 //      - Buttons
 //      - Forms
 //      - Navigation
-//  5. Pages
+//  6. Pages
 //      - Home
-//  6. Themes
-//      - Theme
-//      - Admin
 //  7. Vendors
 //  X. Shame
 //
@@ -40,26 +40,27 @@
     @import 'globals/color';
     @import 'globals/typography';
 //
-//  3. Layouts
+//  3. Themes
+//  -------------
+    @import 'themes/theme';
+    @import 'themes/admin';
+//
+//  4. Layouts
 //  -------------
     @import 'layouts/grid';
     @import 'layouts/header';
     @import 'layouts/footer';
 //
-//  4. Components
+//  5. Components
 //  -------------
+    @import 'components/transitions';
     @import 'components/buttons';
     @import 'components/forms';
     @import 'components/navigation';
 //
-//  5. Pages
+//  6. Pages
 // -------------
     @import 'pages/home';
-//
-//  6. Themes
-//  -------------
-    @import 'themes/theme';
-    @import 'themes/admin';
 //
 //  7. Vendors
 //  -------------

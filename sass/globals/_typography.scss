@@ -1,33 +1,44 @@
 html {
-    font-size: $primary-font-size;
+    font-size: var(--primary-font-size);
 }
 body, p {
-    font-family: $primary-font-family;
+    font-family: var(--primary-font-family);
 }
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title-font-family;
+    font-family: var(--title-font-family);
 }
 h1 {
     font-weight: 400;
-    font-size: 2.25rem;
+    font-size: 2.125rem;
+}
+h6 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: 0.15px;
+    font-family: var(--primary-font-family);
 }
 
 // Links
 a {
     text-decoration: none;
+    color: var(--navigation-link-color);
 }
 
 // Logo fonts
 .font-logo-primary-simply {
     font-weight: 500;
     font-size: 1.25rem;
-    color: $black;
+    color: var(--black);
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.125rem;
 }
+.font-logo-darkbg-simply {
+    @extend .font-logo-primary-simply;
+    color: var(--white);
+}
 .font-logo-primary-tidy {
-    color: $primary-color;
+    color: var(--primary-color);
 }

@@ -1,12 +1,22 @@
+body {
 // Color scheme
-$primary-color: #00bdd6;
-$primary-color-gradient-top: hsl(180, 100%, 42%);
-$primary-color-gradient-bottom: hsl(194, 100%, 42%);
-$primary-color-text: #fafafa;
-$primary-dark-color: #3E2723;
+    --primary-color: #00bdd6;
+    --primary-color-gradient-top: hsl(180, 100%, 42%);
+    --primary-color-gradient-bottom: hsl(194, 100%, 42%);
+    --primary-color-text: #fafafa;
+    --primary-dark-color: #3E2723;
+    --lighter-dark-color: #efebe9;
 
 // Typography - Font styles
-$primary-font-family: 'Roboto', sans-serif;
-$title-font-family: 'Montserrat', sans-serif;
-$button-font-family: 'Open Sans', sans-serif;
-$primary-font-size: 16px;
+    --primary-font-family: 'Roboto', sans-serif;
+    --title-font-family: 'Montserrat', sans-serif;
+    --button-font-family: 'Open Sans', sans-serif;
+    --primary-font-size: 16px;
+
+// Opacity (for transitions)
+    --sidemenu-opacity: 0;
+    --booking-form-popup-opacity: 0;
+
+// Layout
+    --border-radius: 2px;
+}

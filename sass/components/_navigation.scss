@@ -3,90 +3,121 @@
     display: flex;
     width: 100%;
     padding: 4px;
-    background-color: $white;    
-    section:first-of-type {    
-        @include flex-item-standard;
+    background-color: var(--navbar-background-color,--white);
+    section:first-of-type {
+        @include flex-item-standard;        
+        flex: 1 1 auto;
         order: -1;
         button {
-            color: $black;
+            color: var(--black);
         }
-        a {
+        i {
             padding-left: 20px;
-            color: $black;
+            color: var(--black);
         }
     }
     section:last-of-type {
-        @include flex-item-standard;
+        @include flex-item-standard;        
+        flex: 1 1 auto;
         order: 1;
         justify-content: flex-end;
         a {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $black;  
+            color: var(--black);  
         }
     }
 }
 // Side navigation menu
 #sidebar {
-    display: grid;
-    grid-template-columns: auto 56px;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-    "sidebar fade";
-    visibility: hidden;
-    opacity: 0;
     height: 100%;
     width: 100%;
-    position: fixed;
-    z-index: 1;
+    position: fixed;    
     top: 0;
-    left: 0;    
-    overflow-x: hidden;
-    #sidebarMenu {
-        grid-area: sidebar;
-        background: $white;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    contain: strict;
+    pointer-events: none;
+    #sidebar-menu {
+        background: var(--white);
         box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
         height: 100%;
-        width: 100%;
+        width: calc(100% - 56px);
+        max-width: 280px;
         display: flex;
         flex-direction: column;
         position: absolute;
         left: -100%;
-        header {
-            height:180px;
-            background: $green;
+        #sidebar-header {            
+            position: relative;
+            display: block;
+            background: url("../img/side-menu-background-illustration.jpg") no-repeat 0 center / cover;
+            color: var(--white-dull);
+            &:before {
+                display: block;
+                content: "";
+                padding-top: 56.25%;
+            }
+            #sidebar-header-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;                
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 16px;
+                #sidebar-header-top {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    a {
+                        color: var(--white-dull);
+                    }
+                }
+            }
+        }
+        #sidebar-nav {
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 8px 0;
+                a {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 16px;
+                    width: 100%;
+                    font-size: 0.875rem;
+                    line-height: 1;
+                    font-weight: 500;
+                    height: 48px;
+                    color: var(--black-dull);
+                    i {
+                        margin-right: 32px;
+                    }
+                }                
+            }
+            #sidebar-nav-primary {
+                border-bottom: 1px solid rgba(0,0,0,0.12);
+                a:first-of-type {
+                    color: var(--green);
+                    text-transform: uppercase;
+                }
+            }
         }
     }
-    #overlay {
-        grid-area: fade;        
-        opacity: 1 !important;
-        visibility: visible !important;       
-        transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1), visibility 0.2s cubic-bezier(0.4, 0.0, 1, 1);
-    }
-    &:before {        
-        background: $background-fade-color;        
+    &:before {    
+        background-color: var(--background-fade-color);     
         position: absolute;
         height: 100%;
         width: 100%;
         content: "";
+        opacity: var(--sidemenu-opacity,0);
+        transition: opacity 0.2s cubic-bezier(0.4, 0.0, 1, 1);
         z-index: -1;
     }
-}
-.showSidebar {
-    left: 0 !important;
-    transition: left 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-.hideSidebar {
-    left: -100% !important;
-    transition: left 0.2s cubic-bezier(0.4, 0.0, 1, 1);
-}
-.makeVisible {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-.makeHidden {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition-delay: 0.2s;
 }

@@ -7,7 +7,8 @@ main {
             flex-direction: column;
             justify-content: center;
             height: calc((100vh - 56px)/2);
-            padding-right: 16px;
+            min-height: 156px;
+            padding: 16px;
             h1 {
                 order: -1;
                 align-self: flex-end;

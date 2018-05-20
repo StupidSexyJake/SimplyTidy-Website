@@ -1,8 +1,16 @@
-$black: rgba(0, 0, 0, 0.87);
-$white: #fafafa;
-$green: #4caf50;
-$red: #f44336;
-$blue: #2196f3;
-$yellow: #ffeb3b;
+// COLOR PALETTE
+:root {
+    --white: #fafafa;
+    --white-dull: rgba(255, 255, 255, 0.54);
+    --black: rgba(0, 0, 0, 0.87);
+    --black-dull: rgba(0, 0, 0, 0.54);
+    --green: #4caf50;
+    --red: #f44336;
+    --blue: #2196f3;
+    --yellow: #ffeb3b;
 
-$background-fade-color: rgba(0,0,0,.54);
+    --primary-font-color: var(--black);
+    --primary-link-color: var(--primary-color);
+    --navigation-link-color: var(--primary-font-color);
+    --background-fade-color: rgba(0,0,0,.54);
+}

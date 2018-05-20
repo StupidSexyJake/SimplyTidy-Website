@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Define charset -->
     <meta charset="utf-8">
@@ -11,25 +10,13 @@
     <!-- Import CSS -->
     <link href="css/styles.css" rel="stylesheet">
     <!-- Import Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Side navigation menu -->
-    <aside id="sidebar">
-        <nav id="sidebarMenu">
-            <header>
-                Header here
-            </header>
-            <nav>
-                <a class="" href="#">Link 1</a>
-            </nav>
-        </nav>
-        <div id="overlay" onclick="closeSidemenu()"></div>
-    </aside>
+
     <!-- Container for grid layout -->
     <div id="page-start" class="grid-container">
         <!-- Header -->
@@ -38,8 +25,8 @@
             <nav>
                 <!-- Left-aligned menu items -->
                 <section>
-                    <!-- Hamburger menu -->
-                    <button class="material-icons-button" onclick="openSidemenu()">menu</button>
+                    <!-- Side menu button -->
+                    <button id="sidemenu-button" class="material-icons-button">menu</button>
                     <!-- Logo -->
                     <a href="#" class="font-logo-primary-simply" title="SimplyTidy Home">Simply<span class="font-logo-primary-tidy">Tidy</span></a>
                 </section>
@@ -59,24 +46,110 @@
                 <!-- Container for flex layout -->
                 <div>
                     <!-- Page title -->
-                    <h1>That clean<br/>home feeling!</h1>
+                    <h1>That clean home feeling!</h1>
                     <!-- Primary call to action button -->
-                    <a class="primary-button-with-icon" title="Book a cleaning service">Book a cleaning <i class="material-icons-text-left">expand_more</i></a>
+                    <a id="homepage-call-to-action" class="primary-button-with-icon" title="Book a cleaning service">Book a cleaning <i class="material-icons-text-left">expand_more</i></a>
                 </div>
             </section>
         </main>
-        <!-- Footer -->
-        <!--<footer>
-            Footer
-        </footer>-->        
+        <!-- Side navigation menu area including overlay area -->
+        <aside id="sidebar">
+            <!-- Side navigation menu (does not include overlay area) -->
+            <section id="sidebar-menu">
+                <!-- Header area for side menu -->
+                <header id="sidebar-header">
+                    <!-- Flex container, vertical (column) direction -->
+                    <div id="sidebar-header-container">
+                        <!-- Flex container for logo and close menu button, horizontal (row) direction -->
+                        <div id="sidebar-header-top">
+                            <!-- Logo -->
+                            <p class="font-logo-darkbg-simply" title="SimplyTidy Home">Simply<span class="font-logo-primary-tidy">Tidy</span></p>
+                            <!-- Close side menu button -->
+                            <i id="close-sidemenu" class="material-icons-button-inline">close</i>
+                        </div>
+                        <!-- Subtitle-->
+                        <p>Gold Coast's premiere home cleaning company</p>                    
+                    </div>
+                </header>
+                <!-- Navigation area for side menu -->
+                <nav id="sidebar-nav">
+                    <!-- Primary navigation links -->
+                    <div id="sidebar-nav-primary">
+                        <a class="" href="#"><i class="material-icons-button-inline">event</i> Schedule a cleaning</a>
+                        <a class="" href="#"><i class="material-icons-button-inline">directions</i>How to book a cleaning</a>
+                        <a class="" href="#"><i class="material-icons-button-inline">local_offer</i>Services and pricing</a>
+                        <a class="" href="#"><i class="material-icons-button-inline">sentiment_satisfied_alt</i>Reviews and testimonials</a>
+                        <a class="" href="#"><i class="material-icons-button-inline">whatshot</i>Special offers</a>                    
+                        <a class="" href="#"><i class="material-icons-button-inline">perm_phone_msg</i>Contact us</a> 
+                    </div>
+                    <!-- Secondary navigation links-->
+                    <div id="sidebar-nav-secondary">
+                        <a class="" href="#"><i class="material-icons-button-inline">person</i>Login</a>                   
+                        <a class="" href="#"><i class="material-icons-button-inline">group_add</i>Join the team</a>
+                    </div>
+                </nav>
+            </section>
+        </aside>
+        <!-- Booking form popup including overlay area -->
+        <aside id="booking-form-popup">
+            <!-- Booking form popup (does not include overlay area -->
+            <section id="booking-form-popup-form">
+                <!-- Header area for booking form popup -->
+                <header id="booking-form-header">
+                    <!-- Container for max-height in px units. #booking-form-header sets max-height in vw units (to maintain aspect ratio) so this fallback is needed to ensure header isn't too large on wide screens -->
+                    <div id="booking-form-header-container">
+                        <div>
+                            <i id="close-booking-form-popup" class="material-icons-button">expand_less</i>
+                        </div>
+                        <div>
+                            <h6>How can we help you today?</h6>
+                        </div>
+                    </div>
+                </header>
+                <!-- Main content area for booking form popup -->
+                <div id="booking-form-content">
+                    <div id="booking-form-content-container">
+                        <div class="booking-form-service-selection">
+                            <div>
+                                <svg x="0px" y="0px" viewBox="0 0 20 20">
+                                    <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
+                                </svg>
+                                <p>Home<br/>cleaning</p>
+                            </div>
+                        </div>
+                        <div class="booking-form-service-selection">
+                            <div>
+                                <svg x="0px" y="0px" viewBox="0 0 20 20">
+                                    <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
+                                </svg>
+                                <p>Bond<br/>cleaning</p>
+                            </div>
+                        </div>
+                        <div class="booking-form-service-selection">
+                            <div>
+                                <svg x="0px" y="0px" viewBox="0 0 20 20">
+                                    <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
+                                </svg>
+                                <p>Spring<br/>cleaning</p>
+                            </div>
+                        </div>
+                        <div class="booking-form-service-selection">
+                            <div>
+                                <svg x="0px" y="0px" viewBox="0 0 20 20">
+                                    <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
+                                </svg>
+                                <p>Airbnb<br/>turnover</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
     </div>
     <!-- Import Javascript -->
-    <script src="js/script.js"></script>
-    <script src="js/vendors/vh-fix.js"></script>
-    <!-- Zoho SalesIQ online chat plugin -->
-    <script type="text/javascript">
-        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"cc3595bcf2b1b5c15c83b5380d8f9499f5a6894966e58a35e59da06c597f5fe9", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery-->
+    <script src="js/script.js"></script> <!-- Custom scripts -->
+    <script src="js/vendors/vh-fix.js"></script>    <!-- Vendor script: VH-Fix for mobile devices -->
+    <script src="js/vendors/zoho-salesiq-chat-widget.js"></script> <!-- Vendor script: Zoho SalesIQ chat plugin -->
 </body>
-
 </html>
