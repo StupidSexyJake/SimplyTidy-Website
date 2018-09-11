@@ -1,16 +1,49 @@
-html, body {
-    height: 100%;
-}
-
-// Reset for margins, padding and borders
-body, h1, h2, h3, h4, h5, h6, p, a, button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-// Set box-sizing to border-box by default
-*, *:before, *:after {
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
-    box-sizing: border-box;
-  }
+//  ====================
+//  Resets
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Page
+//      - Height
+//  2. Layout
+//      - Box model
+//      - Box sizing
+//  3. Buttons
+//
+//  ::::::::::::::::::::
+//
+//  1. Page
+//  ====================
+    //  Height
+    html, body {
+        height: 100%;
+    }
+//
+//  2. Layout
+//  ====================
+    //  Box model
+    body, h1, h2, h3, h4, h5, h6, p, a, button {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    //  Box sizing
+    *, *:before, *:after {
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box; 
+        box-sizing: border-box;
+    }
+//
+//  3. Buttons
+//  ====================
+    button {
+        background: transparent;
+        width: auto;
+        overflow: visible;
+        color: inherit;
+        font: inherit;
+        -webkit-font-smoothing: inherit;
+        -moz-osx-font-smoothing: inherit;
+        -webkit-appearance: none;
+    }

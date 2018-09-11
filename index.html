@@ -10,146 +10,273 @@
     <!-- Import CSS -->
     <link href="css/styles.css" rel="stylesheet">
     <!-- Import Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Container for grid layout -->
-    <div id="page-start" class="grid-container">
-        <!-- Header -->
-        <header>
-            <!-- Primary website navigation -->
-            <nav>
-                <!-- Left-aligned menu items -->
-                <section>
-                    <!-- Side menu button -->
-                    <button id="sidemenu-button" class="material-icons-button">menu</button>
-                    <!-- Logo -->
-                    <a href="#" class="font-logo-primary-simply" title="SimplyTidy Home">Simply<span class="font-logo-primary-tidy">Tidy</span></a>
-                </section>
-                <!-- Right-aligned menu items-->
-                <section>
-                    <!-- Call us button -->
-                    <a class="material-icons-button" title="Call us" href="tel:+61756465290">call</a>
-                    <!-- Chat with us button -->
-                    <a class="material-icons-button" title="Chat with us" onclick='$zoho.salesiq.floatwindow.visible("show");'>chat</a>
-                </section>
-            </nav>            
-        </header>
+    <!-- Page container -->
+    <div id="page-start">
+        <!-- Website navigation -->
+        <nav id="navbar">
+            <!-- Left-aligned menu items -->
+            <div>
+                <!-- Side menu button -->
+                <button id="sidemenu-button">
+                    <svg x="0px" y="0px" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </button>
+                <!-- Logo -->
+                <a href="#" title="SimplyTidy">Simply<span>Tidy</span></a>
+            </div>
+            <!-- Right-aligned menu items -->
+            <div>
+                <!-- Call us button -->
+                <a title="Call us" href="tel:+61756465290">
+                    <svg x="0px" y="0px" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                </a>
+                <!-- Chat with us button -->
+                <button title="Chat with us" onclick='$zoho.salesiq.floatwindow.visible("show");'>
+                    <svg x="0px" y="0px" viewBox="0 0 24 24">                        
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>            
         <!-- Main page content -->
         <main>
-            <!-- Above the fold content section -->
-            <section id="above-the-fold-section" class="vh-fix">
-                <!-- Container for flex layout -->
-                <div>
+            <!-- Above the fold content section. NOTE: "vh-fix" class required when using full-sized hero images -->
+            <section id="above-the-fold" class="vh-fix">
+                <!-- Container for content -->
+                <div class="container">
                     <!-- Page title -->
                     <h1>That clean home feeling!</h1>
                     <!-- Primary call to action button -->
-                    <a id="homepage-call-to-action" class="primary-button-with-icon" title="Book a cleaning service">Book a cleaning <i class="material-icons-text-left">expand_more</i></a>
-                </div>
+                    <a id="homepage-call-to-action" title="Book a cleaning service">
+                        <!-- Icon -->                      
+                        <i>
+                            <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0z"/>
+                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>                                
+                            </svg>
+                        </i>
+                        <!-- Text -->
+                        <span>
+                            Book a cleaning
+                        </span>
+                    </a>
+                </div>               
             </section>
         </main>
-        <!-- Side navigation menu area including overlay area -->
+        <!-- Container for slide-out menu area -->
         <aside id="sidebar">
-            <!-- Side navigation menu (does not include overlay area) -->
-            <section id="sidebar-menu">
-                <!-- Header area for side menu -->
+            <!-- Slide-out menu -->
+            <div id="sidebar-menu">
+                <!-- Header section -->
                 <header id="sidebar-header">
-                    <!-- Flex container, vertical (column) direction -->
+                    <!-- Flex container -->
                     <div id="sidebar-header-container">
                         <!-- Flex container for logo and close menu button, horizontal (row) direction -->
                         <div id="sidebar-header-top">
                             <!-- Logo -->
-                            <p class="font-logo-darkbg-simply" title="SimplyTidy Home">Simply<span class="font-logo-primary-tidy">Tidy</span></p>
+                            <p>Simply<span>Tidy</span></p>
                             <!-- Close side menu button -->
-                            <i id="close-sidemenu" class="material-icons-button-inline">close</i>
+                            <i id="close-sidemenu">                                    
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </i>
                         </div>
-                        <!-- Subtitle-->
-                        <p>Gold Coast's premiere home cleaning company</p>                    
+                        <!-- Subtitle -->
+                        <div id="sidebar-header-bottom">
+                            <p>Gold Coast's premiere home cleaning company</p>
+                        </div>                    
                     </div>
                 </header>
                 <!-- Navigation area for side menu -->
                 <nav id="sidebar-nav">
                     <!-- Primary navigation links -->
-                    <div id="sidebar-nav-primary">
-                        <a class="" href="#"><i class="material-icons-button-inline">event</i> Schedule a cleaning</a>
-                        <a class="" href="#"><i class="material-icons-button-inline">directions</i>How to book a cleaning</a>
-                        <a class="" href="#"><i class="material-icons-button-inline">local_offer</i>Services and pricing</a>
-                        <a class="" href="#"><i class="material-icons-button-inline">sentiment_satisfied_alt</i>Reviews and testimonials</a>
-                        <a class="" href="#"><i class="material-icons-button-inline">whatshot</i>Special offers</a>                    
-                        <a class="" href="#"><i class="material-icons-button-inline">perm_phone_msg</i>Contact us</a> 
+                    <div id="sidebar-nav_primary">
+                        <!-- First link -->                        
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M21.71 11.29l-9-9a.996.996 0 0 0-1.41 0l-9 9a.996.996 0 0 0 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 0 0 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>How to Book</span>
+                        </a>
+                        <!-- Second link -->
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>What's Included</span>
+                        </a>
+                        <!-- Third link -->
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0V0z"/>
+                                    <circle cx="15.5" cy="9.5" r="1.5"/>
+                                    <circle cx="8.5" cy="9.5" r="1.5"/>
+                                    <path fill="none" d="M0 0h24v24H0V0z"/>
+                                    <circle cx="15.5" cy="9.5" r="1.5"/>
+                                    <circle cx="8.5" cy="9.5" r="1.5"/>
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-2.5c2.33 0 4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2s-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>Reviews & Testimonials</span>
+                        </a>
+                        <!-- Fourth link -->
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>Special Offers</span>
+                        </a>
+                        <!-- Fifth link -->                        
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>Terms & Conditions</span>
+                        </a>
+                        <!-- Sixth link -->                  
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.074 15.074 0 0 1-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 3v10l3-3h6V3h-9z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>Contact Us</span>
+                        </a>
                     </div>
-                    <!-- Secondary navigation links-->
-                    <div id="sidebar-nav-secondary">
-                        <a class="" href="#"><i class="material-icons-button-inline">person</i>Login</a>                   
-                        <a class="" href="#"><i class="material-icons-button-inline">group_add</i>Join the team</a>
+                    <!-- Secondary navigation links -->
+                    <div id="sidebar-nav_secondary">
+                        <!-- First link -->
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+                                </svg>
+                            </i>
+                            <!-- Link text -->
+                            <span>Schedule a cleaning</span>
+                        </a>
+                        <!-- Second link -->
+                        <a class="" href="#">
+                            <!-- Icon -->
+                            <i>
+                                <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>                                
+                            </i>
+                            <!-- Link text -->
+                            <span>Login</span>
+                        </a>
                     </div>
                 </nav>
-            </section>
+            </div>
         </aside>
-        <!-- Booking form popup including overlay area -->
-        <aside id="booking-form-popup">
-            <!-- Booking form popup (does not include overlay area -->
-            <section id="booking-form-popup-form">
-                <!-- Header area for booking form popup -->
-                <header id="booking-form-header">
-                    <!-- Container for max-height in px units. #booking-form-header sets max-height in vw units (to maintain aspect ratio) so this fallback is needed to ensure header isn't too large on wide screens -->
-                    <div id="booking-form-header-container">
-                        <div>
-                            <i id="close-booking-form-popup" class="material-icons-button">expand_less</i>
-                        </div>
-                        <div>
-                            <h6>How can we help you today?</h6>
-                        </div>
+        <!-- Service selection fly-down menu -->
+        <aside id="booking-form">
+            <!-- Booking form (does not include overlay area) -->
+            <section id="booking-form_container">
+                <!-- Header area for booking form -->
+                <header id="booking-form_header">
+                    <div id="booking-form_header_container">
+                        <p id="booking-form-header-title">How can we help you today?</p>
+                        <i id="close-booking-form" class="material-icons-button">
+                            <svg x="0px" y="0px" viewBox="0 0 24 24">
+                                <path fill="none" d="M0 0h24v24H0z"/>
+                                <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
+                            </svg>
+                        </i>
                     </div>
                 </header>
                 <!-- Main content area for booking form popup -->
-                <div id="booking-form-content">
-                    <div id="booking-form-content-container">
-                        <div class="booking-form-service-selection">
-                            <div>
+                <div id="booking-form_content">
+                    <!-- Service Selection -->
+                    <section id="booking-form_content_container">
+                        <!-- Selection: Home Cleaning Services -->
+                        <div class="booking-form_service-button_container">
+                            <div id="booking-form_service_first">
                                 <svg x="0px" y="0px" viewBox="0 0 20 20">
                                     <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
                                 </svg>
                                 <p>Home<br/>cleaning</p>
                             </div>
                         </div>
-                        <div class="booking-form-service-selection">
-                            <div>
+                        <!-- Selection: Bond Cleaning Services -->
+                        <div class="booking-form_service-button_container">
+                            <div id="booking-form_service_second">
                                 <svg x="0px" y="0px" viewBox="0 0 20 20">
                                     <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
                                 </svg>
                                 <p>Bond<br/>cleaning</p>
                             </div>
                         </div>
-                        <div class="booking-form-service-selection">
-                            <div>
+                        <!-- Selection: Spring Cleaning Services -->
+                        <div class="booking-form_service-button_container">
+                            <div id="booking-form_service_third">
                                 <svg x="0px" y="0px" viewBox="0 0 20 20">
                                     <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
                                 </svg>
                                 <p>Spring<br/>cleaning</p>
                             </div>
                         </div>
-                        <div class="booking-form-service-selection">
-                            <div>
+                        <!-- Selection: Airbnb Turnover Services -->
+                        <div class="booking-form_service-button_container">
+                            <div id="booking-form_service_fourth">
                                 <svg x="0px" y="0px" viewBox="0 0 20 20">
                                     <path d="M18.672,11H17v6c0,0.445-0.194,1-1,1h-4v-6H8v6H4c-0.806,0-1-0.555-1-1v-6H1.328c-0.598,0-0.47-0.324-0.06-0.748L9.292,2.22C9.487,2.018,9.743,1.918,10,1.908c0.257,0.01,0.513,0.109,0.708,0.312l8.023,8.031C19.142,10.676,19.27,11,18.672,11z"/>
                                 </svg>
                                 <p>Airbnb<br/>turnover</p>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </section>
         </aside>
     </div>
     <!-- Import Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery-->
     <script src="js/script.js"></script> <!-- Custom scripts -->
+    <script src="js/booking-form.js"></script> <!-- Booking form scripts -->
     <script src="js/vendors/vh-fix.js"></script>    <!-- Vendor script: VH-Fix for mobile devices -->
-    <script src="js/vendors/zoho-salesiq-chat-widget.js"></script> <!-- Vendor script: Zoho SalesIQ chat plugin -->
+    <!--<script src="js/vendors/zoho-salesiq-chat-widget.js"></script> <!-- Vendor script: Zoho SalesIQ chat plugin -->
 </body>
 </html>

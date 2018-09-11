@@ -1,0 +1,42 @@
+//  ====================
+//  Material Design: Typography Defaults   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Font Sizes
+//  2. Font Weights
+//  3. Font Families
+//
+//  ::::::::::::::::::::
+//
+//  1. Font Sizes
+//  ====================
+    $theme_typography_font-size: (
+        tiny: unit(default, 1.25),
+        small: unit(default, 1.75),
+        normal: unit(default, 2),
+        large: unit(default, 2.5),
+        extra-large: unit(default, 3),
+        title: unit(default, 4.25),
+    );
+//
+//  2. Font Weights
+//  ====================
+    $theme_typography_font-weight: (
+        thin: 100,
+        light: 300,
+        regular: 400,
+        medium: 500,
+        bold: 600,
+        black: 700
+    );
+//
+//  3. Font Families
+//  ====================
+    $theme_typography_font-family: (
+        default: unquote("'Roboto', sans-serif"),
+        button: unquote("'Open Sans', sans-serif"),
+        heading: unquote("'Roboto', sans-serif"),
+        title: unquote("'Montserrat', sans-serif"),
+    );

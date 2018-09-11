@@ -1,0 +1,35 @@
+//  ====================
+//  Navigation
+//  ====================
+//
+//  Table of Contents
+//
+//  1. Website navigation bar
+//  2. Slide-out menu drawer
+//
+//  ::::::::::::::::::::
+//
+//  1. Website navigation bar
+//  ====================
+    $theme_navigation_navbar: (
+        height: unit(default, 7),
+        logo_size: font-size(large),
+        background: color(white),
+    );
+//
+//  2. Slide-out menu drawer
+//  ====================
+    $theme_navigation_sidemenu: (
+        overlay-width: unit(default, 7),
+        header_background: image(pattern, primary_color) url(image(pattern, primary)) no-repeat 0 center / cover,
+        header_background_color: image(pattern, primary_color),
+        logo_size: font-size(large),
+        subtitle_font: default,
+        subtitle_transform: capitalize,
+        link_count: 8,
+        link_font: default,
+        link_height: unit(default, 7),
+        link_transform: none,
+        cta_color: color(green),
+        cta_transform: uppercase,
+    );

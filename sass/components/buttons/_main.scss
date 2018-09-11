@@ -1,0 +1,133 @@
+//  ====================
+//  Buttons   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Functions
+//  3. Icons
+//  4. Call to Action
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $button_icon: map-merge($theme_button_icon, $config_button_icon);
+    $button_cta: map-merge($theme_button_cta, $config_button_cta);
+    $button_2col-full-width-square: map-merge($theme_button_2col-full-width-square, $config_button_2col-full-width-square);
+//
+//  2. Functions
+//  ====================
+    @function button($type, $key) {
+        @if $type == "icon" {
+            @if map-has-key($button_icon, $key) {
+                $val: map-get($button_icon, $key);
+                @return $val;
+            }
+            @warn "'#{$key}' is not a valid icon value";
+            @return null;
+        }
+        @else if $type == "cta" {
+            @if map-has-key($button_cta, $key) {
+                $val: map-get($button_cta, $key);
+                @return $val;
+            }
+            @warn "'#{$key}' is not a valid call to action button value";
+            @return null;
+        }        
+        @else if $type == "2col-full-width-square" {
+            @if map-has-key($button_2col-full-width-square, $key) {
+                $val: map-get($button_2col-full-width-square, $key);
+                @return $val;
+            }
+            @warn "'#{$key}' is not a valid call to action button value";
+            @return null;
+        };
+        @warn "`#{$type}` is not a valid button type";
+        @return null;
+    };
+//    
+//  3. Icons
+//  ====================
+    @mixin button_icon($unit: "vw") {     
+        height: convertUnit(button(icon, button-size), $unit);
+        width: convertUnit(button(icon, button-size), $unit);
+        padding: convertUnit((button(icon, button-size) - button(icon, icon-size))/2, $unit);
+        border-radius: convertUnit(button(icon, border-radius), $unit);        
+        @include theme-mixin_button();
+        @include config-mixin_button(); 
+        & > svg {            
+            height: convertUnit(button(icon, icon-size), $unit);
+            width: convertUnit(button(icon, icon-size), $unit);            
+            @include theme-mixin_button_icon();
+            @include config-mixin_button_icon();
+        }
+    } 
+//
+//  4. Call to Action
+//  ====================
+    @mixin button_cta($unit: "vw", $vibrant: "more") {       
+        height: convertUnit(button(cta, height), $unit);
+        border-radius: convertUnit(button(cta, border-radius), $unit);
+        color: textColor(button(cta, background));       
+        fill: textColor(button(cta, background));
+        padding-left: convertUnit(button(cta, padding) - ((button(icon, button-size) - button(cta, svg-width)) / 2) + (button(cta, border-radius) / 2), $unit);
+        // Padding-right: By default, equal to theme value plus half the border radius. If the left padding calculation is less than 0 then add the negative value to padding-right to balance (since padding-left can't be less than 0).
+        @if button(cta, padding) - ((button(icon, button-size) - button(cta, svg-width)) / 2) + (button(cta, border-radius) / 2) < 0 {
+            padding-right: convertUnit(button(cta, padding) + (button(cta, border-radius) / 2) + (((button(icon, button-size) - button(cta, svg-width)) / 2) - button(cta, padding) - (button(cta, border-radius) / 2)), $unit);
+        }
+        @else {
+            padding-right: convertUnit(button(cta, padding) + (button(cta, border-radius) / 2), $unit);
+        };
+        @if $vibrant == "more" {
+            background: -webkit-linear-gradient(button(cta, background), adjust-hue(button(cta, background), 14%));
+            background: linear-gradient(button(cta, background), adjust-hue(button(cta, background), 14%));
+        }
+        @else if $vibrant == "less" {
+            background: -webkit-linear-gradient(button(cta, background), darken(button(cta, background), 20%));
+            background: linear-gradient(button(cta, background), darken(button(cta, background), 20%)); 
+            }
+        @else {
+            background: button(cta, background);
+        };      
+        @include font(button(cta, typography-style), $unit); 
+        @include theme-mixin_button_cta($unit);
+        @include config-mixin_button_cta;  
+    };
+//
+//  4. Full width, 2 columns, square
+//  ====================
+    @mixin button_2col-full-width-square() {
+        width: calc(50% - ( #{convertUnit(padding(default), vw)} * 1.5));
+        margin-bottom: convertUnit(padding(default), vmin);
+        margin-left: calc(#{convertUnit(padding(default), vmin)} / 2);
+        margin-right: calc(#{convertUnit(padding(default), vmin)} / 2);
+        position: relative;
+        border-radius: button("2col-full-width-square", border-radius);
+        background: button("2col-full-width-square", background);           
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); // CHANGE
+        &:before {
+            display: block;
+            content: "";
+            padding-top: 100%;
+        }
+        & > div {
+            @include flex($direction_col: true, $justify_space-between: true, $align_center: true);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: button("2col-full-width-square", padding);                   
+            & > svg {
+                fill: textColor(button("2col-full-width-square", background));
+            }
+            & > p {
+                @include font(button, vmin);
+                text-align: center;
+                padding-top: convertUnit(button("2col-full-width-square", icon-gutter), vmin);
+                color: textColor(button("2col-full-width-square", background));
+            }                    
+        }
+    };

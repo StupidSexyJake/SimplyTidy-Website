@@ -1,0 +1,36 @@
+//  ====================
+//  Color
+//  ====================
+// 
+//  Table of Contents:
+// 
+//  1. Variables
+//  2. Functions
+//      - Shorthand 'color(key)'
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================    
+    $colors: map-merge($theme_colors, $config_colors);
+//
+//  2. Functions
+//  ====================
+    @function color($key) {
+        @if map-has-key($colors, $key) {
+            $color: map-get($colors, $key);
+            @return $color;
+        }  
+        @warn "`#{$key}` is not a valid color. Please create it first under $config_colors in _config.scss";
+        @return null;
+    };
+    @function textColor($key) {
+        @if (lightness($key) < 50) {
+            $color-text: color(text_light);
+            @return $color-text;
+        }
+        @else {
+            $color-text: color(text_dark);
+            @return $color-text;
+        }
+    };

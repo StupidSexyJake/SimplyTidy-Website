@@ -1,0 +1,33 @@
+//  ====================
+//  Functions   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Default Viewport Size
+//  2. Unit Conversion
+//
+//  ::::::::::::::::::::
+//
+//  1. Default Viewport Size
+//  ====================
+    $viewport: (
+        width: 375,
+        height: 667
+    );
+//
+//  2. Unit Conversion
+//  ====================
+    @function convertUnit($key, $unit) {
+        @if $unit == "px" {
+            @return $key;
+        }
+        @else if $unit == "vw" or $unit == "vmin" {
+            $converted: $key / 1px / (map-get($viewport, width) / 100);
+            @return #{$converted}#{$unit};
+        }
+        @else if $unit == "vh" or $unit == "vmax" {
+            $converted: $key / 1px / (map-get($viewport, height) / 100);
+            @return #{$converted}#{$unit};
+        }
+    }

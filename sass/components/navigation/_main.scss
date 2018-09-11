@@ -1,0 +1,193 @@
+//  ====================
+//  Navigation   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Website navigation bar
+//      - Left navbar items
+//          - Slide out menu button
+//          - Logo
+//      - Right navbar items
+//          - Quick action buttons
+//  2. Slide-out menu container
+//      - &:before psuedo: Scrim 
+//      - Container: Menu section
+//          - Header section
+//              - &:before pseudo: Set 'padding-top' to appropriate percentage to maintain aspect ratio
+//
+//  ::::::::::::::::::::
+//    
+//  1. Variables
+//  ====================
+    $navigation_navbar: map-merge($theme_navigation_navbar, $config_navigation_navbar);
+    $navigation_sidemenu: map-merge($theme_navigation_sidemenu, $config_navigation_sidemenu);
+    $navigation_sidemenu_logo-size: calc(navigation(sidemenu, logo_size) / $navigation_sidemenu_width);
+    $navbar_padding: padding(default) - ((button(icon, button-size) - button(icon, icon-size)) / 2);
+//    
+//  2. Functions
+//  ====================    
+    @function navigation($type, $key) {
+        @if $type == "navbar" {
+            @if map-has-key($navigation_navbar, $key) {
+                $val: map-get($navigation_navbar, $key);
+                @return $val;
+            }
+            @warn "'#{$key}' is not a valid navbar value";
+            @return null;
+        }
+        @else if $type == "sidemenu" {
+            @if map-has-key($navigation_sidemenu, $key) {
+                $val: map-get($navigation_sidemenu, $key);
+                @return $val;
+            }
+            @warn "'#{$key}' is not a valid sidemenu value";
+            @return null;
+        };
+        @warn "`#{$type}` is not a valid navigation type";
+        @return null;
+    };
+//    
+//  1. Website navigation
+//  ====================
+    #navbar {
+        @include flex;
+        width: 100%;
+        height: navigation(navbar, height);
+        padding: $navbar_padding;
+        background: navigation(navbar, background);
+        & > div:first-of-type {
+            @include flex-item($grow: true);
+            & > button {
+                @include button_icon($unit: "px");
+                color: textColor(navigation(navbar, background));
+                fill: textColor(navigation(navbar, background));
+            }
+            & > a {
+                @if (lightness(navigation(navbar, background)) > 50) {
+                    @include logo;
+                } 
+                @else {
+                    @include logo($background: 'dark')
+                };          
+                font-size: navigation(navbar, logo_size);
+            };
+        };
+        & > div:last-of-type {
+            @include flex-item($justify_flex-end: true);
+            @include flex;            
+            color: textColor(navigation(navbar, background));
+            fill: textColor(navigation(navbar, background));
+            & > * {
+                @include flex-item;
+                @include button_icon($unit: "px");
+            };
+        };
+    };
+//
+//  2. Slide-out menu drawer
+//  ====================
+    #sidebar {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        &:before {
+            @include scrim;            
+            @include transition(opacity, nav-drawer_open, standard); 
+            opacity: var(--sidemenu-opacity, 0);
+        };
+        & > #sidebar-menu {
+            position: absolute;
+            left: -100%;
+            height: 100%;
+            width: convertUnit((map-get($viewport, height) - (navigation(sidemenu, link_count) * (navigation(sidemenu, link_height) / 1px)) - (padding(dense) * 4)) / aspect(wide, decimal), vh);
+            max-width: calc(100% - #{convertUnit(navigation(sidemenu, overlay-width), vw)});   
+            & > #sidebar-header {
+                display: block;
+                position: relative;
+                background: navigation(sidemenu, header_background);
+                color: textColor(navigation(sidemenu, header_background_color));
+                fill: textColor(navigation(sidemenu, header_background_color));
+                &:before {
+                    display: block;    
+                    padding-top: aspect(wide, "%");
+                    content: "";
+                };
+                & > #sidebar-header-container {
+                    @include flex($direction_col: true,  $justify_space-between: true);
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;      
+                    #sidebar-header-top {
+                        @include flex-item;
+                        @include flex($justify_space-between: true);
+                        padding-top: convertUnit($navbar_padding, vh);
+                        padding-bottom: convertUnit($navbar_padding, vh);
+                        padding-right: convertUnit($navbar_padding, vh);
+                        padding-left: convertUnit(padding(default), vh);
+                        width: 100%;
+                        & > p {
+                            @if (lightness(navigation(sidemenu, header_background_color)) > 50) {
+                                @include logo;
+                            } 
+                            @else {
+                                @include logo($background: 'dark')
+                            };                              
+                            font-size: convertUnit(navigation(sidemenu, logo_size), vh);
+                        };
+                        & > i {
+                            @include button_icon($unit: "vh");
+                        }
+                    };
+                    #sidebar-header-bottom {
+                        padding: convertUnit(padding(default), vh);
+                        & > p {
+                            @include font(navigation(sidemenu, subtitle_font), vh);
+                            text-transform: navigation(sidemenu, subtitle_transform);
+                        };
+                    };
+                };
+            };
+            & > #sidebar-nav {
+                background: navigation(navbar, background);            
+                height: 100%;
+                & > div {
+                    @include flex($direction_col: true);
+                    padding: convertUnit(padding(dense), vh) convertUnit(padding(default), vh) convertUnit(padding(dense), vh) 0;
+                    & > a {
+                        @include flex-item;
+                        width: 100%;
+                        height: convertUnit(navigation(sidemenu, link_height), vh);
+                        text-transform: navigation(sidemenu, link_transform);
+                        color: textColor(navigation(navbar, background));
+                        fill: textColor(navigation(navbar, background));
+                        & > i {
+                            @include button_icon($unit: "vh");
+                            margin-right: (map-get($layout_padding, default) / 1px) / (311 - (map-get($layout_padding, default) / 1px)) * 100%;
+                        };
+                        & > span {
+                            @include truncate;
+                            @include font(navigation(sidemenu, link_font), vh);
+                        };
+                    };                           
+                };
+                & > #sidebar-nav_primary {
+                    border-bottom: 1px solid textColor(navigation(navbar, background));
+                };
+                & > #sidebar-nav_secondary {
+                    & > a:first-of-type {
+                        color: navigation(sidemenu, cta_color);
+                        fill: navigation(sidemenu, cta_color);
+                        & > span {                            
+                            text-transform: navigation(sidemenu, cta_transform);
+                        }
+                    };
+                };
+            };
+        };
+    };

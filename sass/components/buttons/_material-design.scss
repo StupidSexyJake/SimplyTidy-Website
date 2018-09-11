@@ -1,0 +1,69 @@
+//  ====================
+//  Material Design: Buttons   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Icon only
+//  2. Call to action
+//
+//  ::::::::::::::::::::
+//
+//  1. Default
+//  ====================
+    $theme_button: (
+        button-size: unit(default, 6),
+    );
+    $button: map-merge($theme_button, $config_button);
+    @function button_default($key) {
+        @if map-has-key($button, $key) {
+            $val: map-get($button, $key);
+            @return $val;
+        };
+        @warn "'#{$key}' is not a valid default button value";
+        @return null;
+    };
+    @mixin theme-mixin_button() {
+    };
+//
+//  1. Icons
+//  ====================
+    $theme_button_icon: (
+        icon-size: unit(default, 3),
+        button-size: button_default(button-size),
+        border-radius: border-radius(default),
+    );
+    @mixin theme-mixin_button_icon() {
+    };
+//
+//  2. Call to action
+//  ====================
+    $theme_button_cta: (
+        height: button_default(button-size),    
+        svg-width: 12px,
+        padding: padding(default),
+        border-radius: button_default(button-size) / 2,
+        background: color(primary),
+        typography-style: button,        
+    );
+    @mixin theme-mixin_button_cta($unit) {
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); // CHANGE
+        & > i > svg {
+            filter: drop-shadow(0 convertUnit(1px, $unit) convertUnit(2px, $unit) rgba(0,0,0,0.2));
+        }
+    };
+//
+//  2. Full width, 2 columns, square
+//  ====================
+    $theme_button_2col-full-width-square: (
+        padding: padding(default),
+        icon-gutter: 4px,
+        border-radius: border-radius(default),
+        background: color(primary),
+    );
+    @mixin theme-mixin_button_2col-full-width-square($unit) {
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); // CHANGE
+        & > i > svg {
+            filter: drop-shadow(0 convertUnit(1px, $unit) convertUnit(2px, $unit) rgba(0,0,0,0.2));
+        }
+    };    

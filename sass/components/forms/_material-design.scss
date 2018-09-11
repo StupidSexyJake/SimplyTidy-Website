@@ -1,0 +1,21 @@
+//  ====================
+//  Forms
+//  ====================
+//
+//  Table of Contents
+//
+//  1. Booking form
+//
+//  ::::::::::::::::::::
+//
+//  1. Booking form
+//  ====================
+    $theme_booking-form: (        
+        header_padding: padding(comfortable),
+        header_aspect: ultrawide,
+        header_background: image(pattern, primary_color) url(image(pattern, primary)) no-repeat 0 center / cover,
+        header_background-color: image(pattern, primary_color),
+        header_font-size: font-size(large),
+        content_background-color: color(dark_lighter),
+        overlay-height: 56px,
+    );

@@ -1,22 +1,38 @@
+//  ====================
+//  Homepage   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Main content area
+//      - Above the Fold
+//          - Container
+//              - Page Title
+//              - Call to Action
+//
+//  ::::::::::::::::::::
+//
 main {
-    #above-the-fold-section {
-        background: url("../img/homepage-hero-woman-relaxing.jpg") no-repeat 0 center / cover;
-        min-height: calc(100vh - 56px);
-        div:first-of-type {
-            display: flex;            
-            flex-direction: column;
-            justify-content: center;
-            height: calc((100vh - 56px)/2);
-            min-height: 156px;
-            padding: 16px;
-            h1 {
-                order: -1;
-                align-self: flex-end;
+    & > #above-the-fold {      
+        height: calc(100vh - #{navigation(navbar, height)});
+        background: url(image(hero, homepage)) no-repeat 0 center / cover;
+        & > .container {
+            @include flex($direction_col: true, $justify_space-evenly: true);
+            height: aspect(thin, vw);
+            max-height: calc(100vh - #{navigation(navbar, height)});
+            & > h1 {
+                @include flex-item($align_flex-end: true);
+                @include font(h1, vw);
+                color: textColor(image(hero, homepage_color));
                 text-align: right;
             }
-            a {                             
-                order: 1;
-                margin-top: 32px;                
+            & > a {                             
+                @include flex-item($align_flex-end: true);
+                @include button_cta($unit: "vw");
+                max-height: calc(100vh - #{navigation(navbar, height)} - (#{convertUnit(padding(default), vw)} * 2) - (#{convertUnit(typography(h1, font-size), vw)} * 2.4));
+                & > i {
+                    @include button_icon($unit: "vw");
+                }
             }
         }
     }

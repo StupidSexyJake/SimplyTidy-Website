@@ -1,22 +1,162 @@
-body {
-// Color scheme
-    --primary-color: #00bdd6;
-    --primary-color-gradient-top: hsl(180, 100%, 42%);
-    --primary-color-gradient-bottom: hsl(194, 100%, 42%);
-    --primary-color-text: #fafafa;
-    --primary-dark-color: #3E2723;
-    --lighter-dark-color: #efebe9;
+//  ====================
+//  User Configuration   
+//  ====================
+//
+//  Table of Contents:
+//
+//  1. Functions
+//  2. Units
+//  3. Layout
+//  4. Colors
+//  5. Typography
+//      - Defaults
+//      - Styles
+//  6. Branding
+//  7. Components
+//
+//  ::::::::::::::::::::
+//
+//  1. Reset
+//  ====================
+    @import 'reset';
+//
+//  1. Functions
+//  ====================
+    @import 'functions';
+//
+//  2. Units
+//  ====================
+    $config_layout_unit: (
+    );
+    @import '../globals/units/material-design';
+    @import '../globals/units/main';
+//
+//  3. Layout
+//  ====================
+    $config_layout_unit: (
+    );
+    $config_layout_padding: (
+    );
+    $config_layout_border-radius: (
+    );
+    @import '../globals/layout/material-design';
+    @import '../globals/layout/main';
+//
+//  4. Colors
+//  ====================
+    @import '../globals/color/material-design';  
+    $config_colors: (
+        primary: theme-color(cyan),
+        dark: theme-color(brown-900),
+        dark_lighter: theme-color(brown-50),
+    );  
+    @import '../globals/color/main';
+//
+//  5. Typography
+//  ====================
+    //
+    //  Defaults
+    //  ====================
+    $config_typography_font-size: ( 
+    );
+    $config_typography_font-weight: (
+    );
+    $config_typography_font-family: (
+    );    
+    @import '../globals/typography/defaults/material-design';
+    @import '../globals/typography/defaults/main';
+    //
+    //  Styles
+    //  ====================
+    $config_typography_h1: (
+    );
+    @mixin config-mixin_typography_h1($unit) {
+    };
+    $config_typography_h2: (
+    );
+    @mixin config-mixin_typography_h2($unit) {
+    };
+    $config_typography_h3: (
+    );
+    @mixin config-mixin_typography_h3($unit) {
+    };
+    $config_typography_body: (
+    );
+    $config_typography_link: (
+    );
+    $config_typography_button: (
+    );    
+    @mixin config-mixin_typography_button($unit) {        
+    };
+    @import '../globals/typography/styles/material-design';
+    @import '../globals/typography/styles/main';
 
-// Typography - Font styles
-    --primary-font-family: 'Roboto', sans-serif;
-    --title-font-family: 'Montserrat', sans-serif;
-    --button-font-family: 'Open Sans', sans-serif;
-    --primary-font-size: 16px;
-
-// Opacity (for transitions)
-    --sidemenu-opacity: 0;
-    --booking-form-popup-opacity: 0;
-
-// Layout
-    --border-radius: 2px;
-}
+//
+//  4. Transitions
+//  ====================
+    $config_transition_easing: (
+    );
+    $config_transition_duration: (
+    );
+    @import '../globals/transitions/material-design';
+    @import '../globals/transitions/main';
+//
+//  4. Logo
+//  ====================
+    $config_logo: (
+        font-family: unquote("'Montserrat', sans-serif"),
+        font-weight: font-weight(medium),
+        text-transform: uppercase,
+        letter-spacing: 0.125rem,
+        color-starting: color(primary),
+        color-ending: color(black),
+        color-starting_dark-background: color(primary),
+        color-ending_dark-background: color(white),
+    );
+    @import '../components/logo';
+//
+//  4. Images
+//  ====================
+    $config_image_hero: (
+    );
+    $config_image_pattern: (
+    );
+    @import '../components/images/material-design';
+    @import '../components/images/main';
+//
+//  5. Buttons
+//  ====================
+    $config_button: (
+    );
+    @mixin config-mixin_button() {
+    };
+    $config_button_icon: (
+    );
+    @mixin config-mixin_button_icon() {
+    };
+    $config_button_cta: (
+    );
+    @mixin config-mixin_button_cta() {
+    };
+    $config_button_2col-full-width-square: (
+    );
+    @mixin config-mixin_button_2col-full-width-square() {
+    };
+    @import '../components/buttons/material-design';
+    @import '../components/buttons/main';
+//
+//  6. Navigation
+//  ====================
+    $config_navigation_navbar: (
+    );
+    $config_navigation_sidemenu: (
+    );
+    @import '../components/navigation/material-design';
+    @import '../components/navigation/main';
+//
+//  7. Forms
+//  ====================
+    $config_booking-form: (
+    );
+    @import '../components/forms/material-design';
+    @import '../components/forms/main';

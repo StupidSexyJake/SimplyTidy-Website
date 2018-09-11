@@ -1,0 +1,26 @@
+//  ====================
+//  Layout: Material Design 
+//  ====================
+//
+//  Table of Contents:
+//
+//  1. Units
+//  2. Padding
+//  3. Border Radius
+//
+//  ::::::::::::::::::::
+//
+//  1. Padding
+//  ====================
+    $theme_layout_padding: (
+        dense: unit(default, 1),
+        default: unit(default, 2),
+        comfortable: unit(default, 3),
+        double: unit(default, 4),
+    );
+//
+//  1. Border Radius
+//  ====================
+    $theme_layout_border-radius: (
+        default: unit(default, 0.25),
+    );

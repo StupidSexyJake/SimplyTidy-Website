@@ -1,0 +1,33 @@
+//  ====================
+//  Logo  
+//  ====================
+//
+//  Table of Contents:
+//
+//  1. Theme    
+//  2. Colors
+//  3. Typography
+//  4. Branding
+//  5. Layout
+//  6. Components
+//
+//  :::::::::::::::::::: 
+    @mixin logo($background: 'light') {
+        text-decoration: none;
+        font-family: map-get($config_logo, font-family);
+        font-weight: map-get($config_logo, font-weight);
+        text-transform: map-get($config_logo, text-transform);
+        letter-spacing: map-get($config_logo, letter-spacing);
+        @if ($background == 'dark') {
+            color: map-get($config_logo, color-starting_dark-background);
+            & > span {
+                color: map-get($config_logo, color-ending_dark-background);
+            }
+        }
+        @else {
+            color: map-get($config_logo, color-starting);
+            & > span {
+                color: map-get($config_logo, color-ending);
+            }         
+        };        
+    };

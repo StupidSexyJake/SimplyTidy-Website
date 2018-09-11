@@ -1,0 +1,25 @@
+//  ====================
+//  Units   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Functions
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $layout_unit: map-merge($theme_layout_unit, $config_layout_unit);
+//
+//  2. Functions
+//  ====================
+    @function unit($type, $multiple) {
+        @if map-has-key($layout_unit, $type) {
+            $val: map-get($layout_unit, $type);
+            @return $val * $multiple;
+        }  
+        @warn "`#{$key}` is not a valid unit value";
+        @return null;
+    };

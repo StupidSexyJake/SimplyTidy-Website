@@ -1,70 +1,44 @@
+//  ====================
 //  SASS Main
-//  ==============
+//  ====================
 // 
 //  Table of Contents:
 // 
 //  1. Utils
-//      - Config
-//      - Functions
-//      - Mixins
+//      - Reset: Reset browser defaults back to baseline
+//      - Mixins: Global mixins only
+//      - Functions: Global functions only
+//      - Config: User configuration and theme customisation settings. The only file that should be edited by end users.
 //  2. Globals
-//      - Reset
 //      - Color
 //      - Typography
-//  3. Themes
-//      - Theme
-//      - Admin
-//  4. Layout
-//      - Grid
+//  3. Layout
+//      - Container
 //      - Header
 //      - Footer
-//  5. Components
+//  4. Components
 //      - Buttons
 //      - Forms
 //      - Navigation
-//  6. Pages
+//  5. Pages
 //      - Home
-//  7. Vendors
+//  6. Vendors
 //  X. Shame
 //
+//  ::::::::::::::::::::
 //
 //  1. Utils
-//  -------------
-    @import 'utils/reset';
+//  ====================
+    
     @import 'utils/config';
-    @import 'utils/functions';
-    @import 'utils/mixins';
-// 
-//  2. Globals
-//  ------------- 
-    @import 'globals/color';
-    @import 'globals/typography';
 //
-//  3. Themes
-//  -------------
-    @import 'themes/theme';
-    @import 'themes/admin';
-//
-//  4. Layouts
-//  -------------
-    @import 'layouts/grid';
-    @import 'layouts/header';
-    @import 'layouts/footer';
-//
-//  5. Components
-//  -------------
-    @import 'components/transitions';
-    @import 'components/buttons';
-    @import 'components/forms';
-    @import 'components/navigation';
-//
-//  6. Pages
-// -------------
+//  5. Pages
+//  ====================
     @import 'pages/home';
 //
-//  7. Vendors
-//  -------------
+//  6. Vendors
+//  ====================
 //
 //  X. Shame
-//  -------------
+//  ====================
     @import 'shame';

@@ -1,0 +1,90 @@
+//  ====================
+//  Layout   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Functions
+//  3. Containers
+//  4. Flex
+//      - Flex (parent container)
+//      - Flex items (children)
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $layout_padding: map-merge($theme_layout_padding, $config_layout_padding);
+    $layout_border-radius: map-merge($theme_layout_border-radius, $config_layout_border-radius);
+    $layout_aspect: (
+        superwide: 9 / 28 * 100,
+        ultrawide: 9 / 21 * 100,  
+        wide: 9 / 16 * 100,
+        thin: 2 / 3 * 100,
+        normal: 3 / 4 * 100,
+        even: 1 / 1 * 100, 
+        narrow: 4 / 3 * 100,
+        tall: 3 / 2 * 100,
+    );
+//
+//  2. Functions
+//  ====================
+    @function padding($key) {
+        @if map-has-key($layout_padding, $key) {
+            $val: map-get($layout_padding, $key);
+            @return $val;
+        }  
+        @warn "`#{$key}` is not a valid padding value";
+        @return null;
+    };
+    @function border-radius($key) {
+        @if map-has-key($layout_border-radius, $key) {
+            $val: map-get($layout_border-radius, $key);
+            @return $val;        
+        };
+        @warn "`#{$key}` is not a valid border-radius value";
+        @return null;
+    };
+    @function aspect($key, $unit) {
+        @if map-has-key($layout_aspect, $key) {
+            @if $unit == "decimal" {
+                $val: map-get($layout_aspect, $key) / 100;
+                @return $val;
+            }
+            @else {
+                $val: #{map-get($layout_aspect, $key)}#{$unit};
+                @return $val;
+            };
+        }  
+        @warn "`#{$key}` is not a valid aspect ratio";
+        @return null;
+    };
+//
+//  3. Containers
+//  ====================
+    .container {
+        padding: convertUnit(padding(default), vmin);
+    }
+//
+//  4. Flex
+//  ====================
+    @mixin flex($direction_col: false, $justify_space-between: false, $justify_space-around: false, $justify_space-evenly: false, $justify_center: false, $align_center: false, $flex-wrap: "nowrap") {
+        display: flex;
+        display: -webkit-flex;
+        @if $flex-wrap != "nowrap" { flex-wrap: $flex-wrap };
+        @if $direction_col { flex-direction: column; };
+        @if $justify_space-between { justify-content: space-between; }
+        @else if $justify_space-around { justify-content: space-around; }
+        @else if $justify_space-evenly { justify-content: space-around; justify-content: space-evenly; }
+        @else if $justify_center { justify-content: center; };
+        @if $align_center { align-items: center; };
+    }
+    @mixin flex-item($grow: false, $items_center: true, $justify_flex-end: false, $justify_center: false, $align_flex-end: false) {
+        display: inline-flex;
+        @if $grow { flex-grow: 1; }
+        @if $items_center { align-items: center; }
+        @if $justify_flex-end { justify-content: flex-end; }
+        @if $justify_center { justify-content: center; }
+        @if $align_flex-end { align-self: flex-end; }
+    }

@@ -1,0 +1,36 @@
+//
+//  Transitions   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//      - Easing
+//      - Duration (speed)
+//
+// ::::::::::::::::::::::
+//    
+//  1. Variables
+//  ====================
+    $theme_transition_easing: (
+        standard: "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        accelerate: "cubic-bezier(0.4, 0.0, 1, 1)",
+        decelerate: "cubic-bezier(0.0, 0.0, 0.2, 1)"
+    );
+    $theme_transition_duration: (
+        selection-control: 0.1s,
+        dialog-in: 0.15s,
+        dialog-out: 0.075s,
+        shape-change_simple: 0.2s,
+        shape-change_complex: 0.5s,
+        nav-drawer_open: 0.25s,
+        nav-drawer_close: 0.2s,
+        card_expand: 0.3s,
+        card_collapse: 0.25s,
+        area_small: 0.1s,
+        area_medium_expand: 0.25s,
+        area_medium_collapse: 0.2s,
+        area_large_expand: 0.3s,
+        area_large_collapse: 0.25s,
+        slow: 2s,
+    );

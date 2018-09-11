@@ -1,0 +1,58 @@
+//  ====================
+//  Typography Defaults
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Functions
+//  3. Mixins
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $typography_font-size: map-merge($theme_typography_font-size, $config_typography_font-size);
+    $typography_font-weight: map-merge($theme_typography_font-weight, $config_typography_font-weight);
+    $typography_font-family: map-merge($theme_typography_font-family, $config_typography_font-family);
+//
+//  2. Functions
+//  ====================
+    @function font-size($key) {
+        @if map-has-key($typography_font-size, $key) {
+            @return map-get($typography_font-size, $key);
+        }  
+        @warn "`#{$key}` is not a valid font size";
+        @return null;
+    };
+    @function font-weight($key) {
+        @if map-has-key($typography_font-weight, $key) {
+            @return map-get($typography_font-weight, $key);
+        }  
+        @warn "`#{$key}` is not a valid font weight";
+        @return null;
+    };
+    @function font-family($key) {
+        @if map-has-key($typography_font-family, $key) {
+            @return map-get($typography_font-family, $key);
+        }  
+        @warn "`#{$key}` is not a valid font family";
+        @return null;
+    };
+    @function letter-spacing($size, $key) {
+        $val: $key / ($size / 1px) * font-size(normal);
+        @return $val;
+    };
+//
+//  2. Mixins
+//  ====================
+    @mixin truncate($ellipsis: true, $clip: false) {
+        overflow: hidden;
+        white-space: nowrap;
+        @if $ellipsis == true {
+            text-overflow: ellipsis;
+        }
+        @else if $clip == true {
+            text-overflow: clip;
+        };
+    };

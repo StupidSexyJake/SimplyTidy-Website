@@ -1,0 +1,116 @@
+//  ====================
+//  Typography Styles
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Functions
+//  2. Mixins
+//  3. Headings
+//  5. Links
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $typography_h1: map-merge($theme_typography_h1, $config_typography_h1);
+    $typography_h2: map-merge($theme_typography_h2, $config_typography_h2);
+    $typography_h3: map-merge($theme_typography_h3, $config_typography_h3);
+    $typography_body: map-merge($theme_typography_body, $config_typography_body);
+    $typography_link: map-merge($theme_typography_link, $config_typography_link);
+    $typography_button: map-merge($theme_typography_button, $config_typography_button);
+//
+//  2. Functions
+//  ====================
+    @function typography($type, $key) {
+        @if $type == "h1" or $type == "title" {
+            @if map-has-key($typography_h1, $key) {
+                $val: map-get($typography_h1, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid H1/title font value";
+            @return null;
+        }
+        @else if $type == "h2" {
+            @if map-has-key($typography_h2, $key) {
+                $val: map-get($typography_h2, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid H2 font value";
+            @return null;
+        }
+        @else if $type == "h3" {
+            @if map-has-key($typography_h3, $key) {
+                $val: map-get($typography_h3, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid H3 font value";
+            @return null;
+        }
+        @else if $type == "default" or $type == "body" {
+            @if map-has-key($typography_body, $key) {
+                $val: map-get($typography_body, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid body/default font value";
+            @return null;
+        }
+        @else if $type == "link" or $type == "a" {
+            @if map-has-key($typography_link, $key) {
+                $val: map-get($typography_link, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid link font value";
+            @return null;
+        }
+        @else if $type == "button" {
+            @if map-has-key($typography_button, $key) {
+                $val: map-get($typography_button, $key);
+                @return $val;
+            }                
+            @warn "`#{$key}` is not a valid button font value";
+            @return null;
+        };
+        @warn "`#{$key}` is not a valid typography type";
+        @return null;
+    };
+//
+//  3. Mixins
+//  ====================
+    @mixin font($style, $unit) {
+        font-size: convertUnit(typography($style, font-size), $unit);
+        letter-spacing: convertUnit(typography($style, letter-spacing), $unit);
+        font-family: typography($style, font-family);
+        font-weight: typography($style, font-weight);
+        text-transform: typography($style, text-transform);
+        @if $style == "h1" {            
+            @include theme-mixin_typography_h1($unit);
+            @include config-mixin_typography_h1($unit);
+        }
+        @else if $style == "h2" {            
+            @include theme-mixin_typography_h2($unit);
+            @include config-mixin_typography_h2($unit);
+        }
+        @else if $style == "h3" {            
+            @include theme-mixin_typography_h3($unit);
+            @include config-mixin_typography_h3($unit);
+        }
+        @else if $style == "button" {            
+            @include theme-mixin_typography_button($unit);
+            @include config-mixin_typography_button($unit);
+        }
+    };
+//
+//  2. Defaults
+//  ====================
+    html {
+        font-size: font-size(normal);
+    };
+    body {
+        font-family: font-family(default);
+    };
+    a {
+        text-decoration: typography(link, text-decoration);
+        color: typography(link, color);
+    };

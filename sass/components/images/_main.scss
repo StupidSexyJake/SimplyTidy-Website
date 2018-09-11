@@ -1,0 +1,34 @@
+//  ====================
+//  Images  
+//  ====================
+//
+//  Table of Contents:
+//
+//  1. Variables
+//  2. Functions
+//
+//  ::::::::::::::::::::
+//
+//  1. Variables
+//  ====================
+    $image_hero: map-merge($theme_image_hero, $config_image_hero);
+    $image_pattern: map-merge($theme_image_pattern, $config_image_pattern);
+//
+//  2. Functions
+//  ====================
+    @function image($type, $key) {
+        @if $type == "hero" {
+            @if map-has-key($image_hero, $key) {
+                @return map-get($image_hero, $key);
+            }  
+            @warn "`#{$key}` is not a valid hero image";
+            @return null;
+        }
+        @else if $type == "pattern" {
+            @if map-has-key($image_pattern, $key) {
+                @return map-get($image_pattern, $key);
+            }  
+            @warn "`#{$key}` is not a valid pattern";
+            @return null;
+        }
+    };

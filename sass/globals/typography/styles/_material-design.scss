@@ -1,0 +1,71 @@
+//  ====================
+//  Material Design: Typography Styles   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Font Sizes
+//  2. Font Weights
+//  3. Font Families
+//
+//  ::::::::::::::::::::
+//
+//  3. Headings
+//  ====================
+    $theme_typography_h1: (
+        font-size: font-size(title),
+        letter-spacing: letter-spacing(font-size(title), 0.25),    
+        font-family: font-family(title),
+        font-weight: font-weight(regular),
+        text-transform: none,
+    );
+    @mixin theme-mixin_typography_h1($unit) {
+    };
+    $theme_typography_h2: (
+        font-size: font-size(extra-large),
+        letter-spacing: letter-spacing(font-size(title), 0),    
+        font-family: font-family(heading),
+        font-weight: font-weight(regular),
+        text-transform: none,
+    );
+    @mixin theme-mixin_typography_h2($unit) {
+    };
+    $theme_typography_h3: (
+        font-size: font-size(large),
+        letter-spacing: letter-spacing(font-size(title), 0.15),    
+        font-family: font-family(heading),
+        font-weight: font-weight(medium),
+        text-transform: none,
+    );
+    @mixin theme-mixin_typography_h3($unit) {
+    };
+//
+//  4. Body
+//  ====================
+    $theme_typography_body: (
+        font-size: font-size(normal),        
+        letter-spacing: letter-spacing(font-size(normal), 0.5),        
+        font-family: font-family(default),       
+        font-weight: font-weight(regular),
+        text-transform: none
+    );
+//
+//  4. Links
+//  ====================
+    $theme_typography_link: (
+        text-decoration: none,
+        color: color(text_dark)
+    );
+//
+//  4. Buttons
+//  ====================
+    $theme_typography_button: (
+        font-size: font-size(small),    
+        letter-spacing: letter-spacing(font-size(small), 0.75),           
+        font-family: font-family(button),               
+        font-weight: font-weight(regular),              
+        text-transform: uppercase
+    );    
+    @mixin theme-mixin_typography_button($unit) {        
+        text-shadow: 0 convertUnit(1px, $unit) convertUnit(2px, $unit) rgba(0,0,0,0.2);
+    };

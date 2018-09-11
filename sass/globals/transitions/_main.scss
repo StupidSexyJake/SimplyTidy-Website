@@ -1,0 +1,95 @@
+//  ====================
+//  Transitions  
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Variables
+//  2. Mixins
+//  3. CSS Variables
+//  4. Placeholders
+//  5. Sections
+//
+// ::::::::::::::::::::::
+//    
+//  1. Variables
+//  ====================
+    $transition_easing: map-merge($theme_transition_easing, $config_transition_easing);
+    $transition_duration: map-merge($theme_transition_duration, $config_transition_duration);
+//    
+//  2. Mixins
+//  ====================
+    @mixin transition($val, $type, $speed) {
+        $duration: map-get($transition_duration, $type);
+        $easing: unquote(map-get($transition_easing, $speed));
+        transition: $val $duration $easing;
+    }
+    @mixin transition_two($val1, $val2, $type, $speed) {
+        $duration: map-get($transition_duration, $type);
+        $easing: unquote(map-get($transition_easing, $speed));
+        transition: $val1 $duration, $val2 $duration $easing;
+    }
+    @mixin scrim() {
+        background: rgba(0,0,0,0.62);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        content: "";
+    };
+//    
+//  3. CSS Variables
+//  ====================
+    :root {
+        --sidemenu-opacity: 0;
+        --booking-form-popup-opacity: 0;
+    }
+//    
+//  4. Placeholders
+//  ====================
+    @each $duration-key, $duration-val in $transition_duration {
+        @each $easing-key, $easing-val in $transition_easing {
+            %transition_in-from-left_#{$duration-key}_#{$easing-key} {
+                left: 0 !important;
+                @include transition(left, $duration-key, $easing-key);
+            }
+            %transition_out-to-left_#{$duration-key}_#{$easing-key} {
+                left: -100% !important;
+                @include transition(left, $duration-key, $easing-key);
+            }
+            %transition_in-from-top_#{$duration-key}_#{$easing-key} {
+                top: 0 !important;
+                @include transition(top, $duration-key, $easing-key);
+            }
+            %transition_out-to-top_#{$duration-key}_#{$easing-key} {
+                top: -100vh !important;
+                @include transition(top, $duration-key, $easing-key);
+            }
+        }
+    }
+//    
+//  5. Sections
+//  ====================
+    .transition_navbar_in {
+        @extend %transition_in-from-left_nav-drawer_open_decelerate;
+    }
+    .transition_navbar_out {
+        @extend %transition_out-to-left_nav-drawer_close_accelerate;
+    }    
+    .transition_booking-form_in {
+        @extend %transition_in-from-top_area_large_expand_decelerate;
+    }
+    .transition_booking-form_out {
+        @extend %transition_out-to-top_area_large_collapse_accelerate;
+    }
+    .transition_booking-form_expand-service {
+        width: 100% !important;
+        max-width: none !important;
+        height: calc(100% - (4.2666666667vmin));
+        max-height: calc((100vh - 56px - calc(9.6vmin + 6.4vmin + 5.3333333333vmin) - (4.2666666667vmin) * 2));
+        margin-left: convertUnit(padding(default), vmin) !important;
+        margin-right: convertUnit(padding(default), vmin) !important;
+        @include transition_two(width, height, slow, standard);
+    };
+    .transition_booking-form_expand-container {        
+        @include transition(height, area_large_expand, standard);
+    }

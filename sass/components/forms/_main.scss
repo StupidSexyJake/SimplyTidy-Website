@@ -1,0 +1,99 @@
+//  ====================
+//  Forms   
+//  ====================
+//
+//  Table of Contents:
+//    
+//  1. Functions
+//  2. Variables
+//
+//  ::::::::::::::::::::
+// 
+//  1. Functions
+//  ==================== 
+    $booking-form: map-merge($theme_booking-form, $config_booking-form);   
+    @function bookingForm($key) {
+        @if map-has-key($booking-form, $key) {
+            @return map-get($booking-form, $key);
+        }
+        @warn "`#{$key}` is not a valid key within booking-form map";
+        @return null;
+    }
+//  2. Variables
+//  ====================
+    $booking-form_header-padding-top: convertUnit(bookingForm(header_padding)  + ((button(icon, button-size) - button(icon, icon-size)) / 2), vmin);
+    $booking-form_header-size: calc(#{$booking-form_header-padding-top} + #{convertUnit(bookingForm(header_padding), vmin)} + #{convertUnit(bookingForm(header_font-size), vmin)});
+//
+//  2. Booking Form
+//  ====================
+    #booking-form {
+        height: 100vh;        
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;        
+        pointer-events: none;  
+        &:before {    
+            @include scrim;    
+            @include transition(opacity, area_large_expand, standard);
+            opacity: var(--booking-form_opacity,0);
+        }
+        & > #booking-form_container {            
+            position: absolute;
+            top: -100vh;
+            display: grid;
+            grid-template: $booking-form_header-size auto / 1fr; 
+            width: 100%;
+            height: auto;
+            max-height: calc(100vh - #{bookingForm(overlay-height)});            
+            background: bookingForm(content_background-color);
+            & > #booking-form_header {            
+                grid-column: 1;
+                grid-row: 1 / 3;
+                max-height: aspect(bookingForm(header_aspect), vmin);     
+                background: bookingForm(header_background);
+                color: textColor(bookingForm(header_background-color)); 
+                fill: textColor(bookingForm(header_background-color));              
+                & > #booking-form_header_container {
+                    display: grid;
+                    grid-template-columns: convertUnit(button(icon, button-size), vmin) auto convertUnit(button(icon, button-size), vmin);
+                    justify-items: center;
+                    margin: 0 auto;                    
+                    & > p {
+                        @include font(h3, vmin); // CHANGE
+                        grid-column-start: 2;
+                        align-self: center;
+                        padding-top: $booking-form_header-padding-top;
+                        padding-bottom: convertUnit(bookingForm(header_padding), vmin);
+                    }                
+                    & > i {
+                        margin-left: auto;
+                        height: convertUnit(button(icon, button-size), vmin);
+                        width: convertUnit(button(icon, button-size), vmin);
+                        font-size: convertUnit(button(icon, icon-size), vmin);        
+                        padding: convertUnit((button(icon, button-size) - button(icon, icon-size)) / 2, vmin);
+                    }  
+                }                           
+            }
+            & > #booking-form_content {
+                grid-column: 1;
+                grid-row: 2 / 3;
+                justify-self: center;
+                width: 100%;
+                max-width: calc((100vh - #{bookingForm(overlay-height)} - #{$booking-form_header-size} - #{convertUnit(padding(default), vmin)}) * 1.4); // I don't understand why 1.4 either but it keeps the icons in 2 columns on all screen sizes so don't touch!
+                & > #booking-form_content_container {
+                    @include flex($justify_center: true, $flex-wrap: wrap);
+                    grid-column: 1;
+                    grid-row: 1;
+                    width: 100%;
+                    height: 100%;
+                    max-height: calc(100vh - #{bookingForm(overlay-height)} - #{$booking-form_header-size} - (#{convertUnit(padding(default), vmin)} / 2));                             
+                    margin-bottom: convertUnit(padding(dense), vmin); // CHANGE
+                    & > .booking-form_service-button_container {
+                        @include button_2col-full-width-square();         
+                        max-width: calc((100vh - #{bookingForm(overlay-height)} - #{$booking-form_header-size} - (#{convertUnit(padding(default), vmin)}) * 2) / 2);
+                    }
+                }
+            }
+        }    
+    }
